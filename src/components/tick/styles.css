@@ -1,0 +1,20 @@
+:root {
+    --font-size-small: 12px;
+    --font-color-grey-dark: #444;
+    --font-color-grey-light: #888;
+}
+
+.tick .time-label {
+    color: var(--font-color-grey-dark);
+}
+
+.tick .time-label.time-label-half-hour {
+    font-size: var(--font-size-small);
+    color: var(--font-color-grey-light);
+}
+
+.tick .time-mark {
+    margin-left: 5px;
+    font-size: var(--font-size-small);
+    color: var(--font-color-grey-light);
+}

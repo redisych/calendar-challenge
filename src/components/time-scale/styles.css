@@ -1,0 +1,8 @@
+.time-scale {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-right: 10px;
+    margin: -5px 0;
+}

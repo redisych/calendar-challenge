@@ -4,6 +4,7 @@
       "tslint-react",
       "tslint-eslint-rules"
   ],
+  "defaultSeverity": "warning",
   "rules": {
       "align": [
           true,
