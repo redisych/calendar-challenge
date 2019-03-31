@@ -1,5 +1,6 @@
 import './styles.css';
 import * as React from 'react';
+import { EventsLayout } from 'src/components/events-layout';
 import { TimeScale } from 'src/components/time-scale';
 
 export class Calendar extends React.PureComponent<{}, {}> {
@@ -7,9 +8,7 @@ export class Calendar extends React.PureComponent<{}, {}> {
         return (
             <div className="calendar">
                 <TimeScale />
-                <div className="calendar-layout">
-                    TODO: layout
-                </div>
+                <EventsLayout />
             </div>
         );
     }
