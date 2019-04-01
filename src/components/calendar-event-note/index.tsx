@@ -37,8 +37,8 @@ export const CalendarEventNote: React.FunctionComponent<Props> = (props): JSX.El
             className="calendar-event-note"
             style={getNoteStyle()}
         >
-            <div className="note-header">Sample Item</div>
-            <div className="note-location">Sample Location</div>
+            <div className="note-header text-ellipsis">Sample Item</div>
+            <div className="note-location text-ellipsis">Sample Location</div>
         </div>
     );
 };

@@ -18,3 +18,9 @@
     font-size: var(--font-size-small);
     color: var(--font-color-grey-dark);
 }
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
