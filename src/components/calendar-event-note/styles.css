@@ -1,0 +1,20 @@
+.calendar-event-note {
+    position: absolute;
+    box-sizing: border-box;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-border);
+    border-left: 4px solid var(--font-green);
+    padding: 5px;
+}
+
+.calendar-event-note .note-header {
+    font-size: var(--font-size-medium);
+    font-weight: 600;
+    color: var(--font-green);
+}
+
+.calendar-event-note .note-location {
+    margin-top: 3px;
+    font-size: var(--font-size-small);
+    color: var(--font-color-grey-dark);
+}

@@ -1,10 +1,19 @@
 import './styles.css';
 import * as React from 'react';
 import { CalendarEvent, ClusterCalendarEvent } from 'src/constants/common-interfaces';
+import { CalendarEventNote } from 'src/components/calendar-event-note';
 import { CalendarEventsHelper } from 'src/helpers/calendar-events-helper';
+import { calendarTimeSettings } from 'src/constants/scale-constants';
+import { layoutSettings } from 'src/constants/layout-settings';
 
 interface EventsCluster {
     events: ClusterCalendarEvent[];
+}
+
+interface LayoutStyleSettings {
+    height: number;
+    minWidth: number;
+    width: number;
 }
 
 interface State {
@@ -22,8 +31,13 @@ export class EventsLayout extends React.PureComponent<{}, State> {
 
     public render(): JSX.Element {
         return (
-            <div className="events-layout">
-                TODO: events layout
+            <div
+                className="events-layout"
+                style={this.getLayoutStyle()}
+            >
+                {this.state.eventsClusters.map((cluster: EventsCluster, index) => 
+                    this.renderEventsCluster(index, cluster)
+                )}
             </div>
         );
     }
@@ -77,6 +91,20 @@ export class EventsLayout extends React.PureComponent<{}, State> {
         };
     }
 
+    private calculateNoteWidth = (cluster: EventsCluster): number => {
+        const maxWidthShift = cluster.events.reduce(
+            (maxValue: number, event: ClusterCalendarEvent) => {
+                maxValue = event.widthShiftCoefficient > maxValue ?
+                    event.widthShiftCoefficient :
+                    maxValue;
+                return maxValue;
+            },
+            0
+        );
+
+        return layoutSettings.contentWidth / (maxWidthShift + 1);
+    }
+
     private extendEventWithWidthShift(
         calendarEvent: CalendarEvent,
         clusterEvents: ClusterCalendarEvent[]
@@ -93,6 +121,32 @@ export class EventsLayout extends React.PureComponent<{}, State> {
         }
 
         return newClusterEvent;
+    }
+
+    private getLayoutStyle = (): LayoutStyleSettings => {
+        const width = layoutSettings.contentWidth + (layoutSettings.padding * 2);
+
+        return ({
+            minWidth: width,
+            width,
+            height: calendarTimeSettings.minutesInDay
+        });
+    }
+
+    private renderEventsCluster = (index: number, cluster: EventsCluster): JSX.Element => {
+        return (
+            <React.Fragment key={index}>
+                {cluster.events.map((clusterEvent: ClusterCalendarEvent, eventIndex) => {
+                    return (
+                        <CalendarEventNote
+                            key={eventIndex}
+                            event={clusterEvent}
+                            width={this.calculateNoteWidth(cluster)}
+                        />
+                    );
+                })}
+            </React.Fragment>
+        );
     }
 
     private updateLayOut = (event: CustomEvent): void => {

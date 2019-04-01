@@ -1,9 +1,3 @@
-:root {
-    --font-size-small: 12px;
-    --font-color-grey-dark: #444;
-    --font-color-grey-light: #888;
-}
-
 .tick .time-label {
     color: var(--font-color-grey-dark);
 }

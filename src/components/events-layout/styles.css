@@ -1,6 +1,5 @@
 .events-layout {
-    height: 720px;
-    width: 620px;
-    padding: 10px;
-    background-color: #eee;
+    position: relative;
+    box-sizing: border-box;
+    background-color: #ebebeb;
 }
