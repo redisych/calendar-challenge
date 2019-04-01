@@ -17,7 +17,7 @@ interface NoteStyle {
 
 export const CalendarEventNote: React.FunctionComponent<Props> = (props): JSX.Element => {
     const calculateLeftPosition = (): number => {
-        return (props.event.widthShiftCoefficient * props.width)
+        return (props.event.widthShift * props.width)
             + layoutSettings.padding;
     };
 

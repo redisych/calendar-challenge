@@ -25,7 +25,7 @@ export class CalendarEventsHelper {
             previousClusterEvent,
             currentClusterEvent
         ) &&
-        previousClusterEvent.widthShiftCoefficient === currentClusterEvent.widthShiftCoefficient;
+        previousClusterEvent.widthShift === currentClusterEvent.widthShift;
     }
 
     public static eventHasTimeCollisions(

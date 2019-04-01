@@ -4,5 +4,5 @@ export interface CalendarEvent {
 }
 
 export interface ClusterCalendarEvent extends CalendarEvent {
-    widthShiftCoefficient: number;
+    widthShift: number;
 }

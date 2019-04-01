@@ -83,7 +83,7 @@ export class EventsLayout extends React.PureComponent<{}, State> {
     private addEventToEmptyCluster(calendarEvent: CalendarEvent): EventsCluster {
         const clusterEvent = {
             ...calendarEvent,
-            widthShiftCoefficient: 0
+            widthShift: 0
         };
 
         return {
@@ -94,8 +94,8 @@ export class EventsLayout extends React.PureComponent<{}, State> {
     private calculateNoteWidth = (cluster: EventsCluster): number => {
         const maxWidthShift = cluster.events.reduce(
             (maxValue: number, event: ClusterCalendarEvent) => {
-                maxValue = event.widthShiftCoefficient > maxValue ?
-                    event.widthShiftCoefficient :
+                maxValue = event.widthShift > maxValue ?
+                    event.widthShift :
                     maxValue;
                 return maxValue;
             },
@@ -111,12 +111,12 @@ export class EventsLayout extends React.PureComponent<{}, State> {
     ): ClusterCalendarEvent {
         const newClusterEvent = {
             ...calendarEvent,
-            widthShiftCoefficient: 0
+            widthShift: 0
         };
         let hasCollisions = CalendarEventsHelper.eventHasCollisions(newClusterEvent, clusterEvents);
 
         while (hasCollisions) {
-            newClusterEvent.widthShiftCoefficient ++;
+            newClusterEvent.widthShift ++;
             hasCollisions = CalendarEventsHelper.eventHasCollisions(newClusterEvent, clusterEvents);
         }
 
