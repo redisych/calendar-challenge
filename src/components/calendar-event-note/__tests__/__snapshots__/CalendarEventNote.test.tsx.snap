@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CalendarEventNote should match snapshot 1`] = `
+<div
+  className="calendar-event-note"
+  style={
+    Object {
+      "height": 60,
+      "left": 10,
+      "top": 0,
+      "width": 100,
+    }
+  }
+>
+  <div
+    className="note-header text-ellipsis"
+  >
+    Sample Item
+  </div>
+  <div
+    className="note-location text-ellipsis"
+  >
+    Sample Location
+  </div>
+</div>
+`;

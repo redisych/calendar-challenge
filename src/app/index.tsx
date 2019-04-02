@@ -1,6 +1,6 @@
 import './styles.css';
 import * as React from 'react';
-import { Calendar } from 'src/components/calendar';
+import { Calendar } from '../components/calendar';
 
 class App extends React.Component {
     public render(): JSX.Element {
@@ -12,4 +12,4 @@ class App extends React.Component {
     }
 }
 
-export default App;
+export { App };

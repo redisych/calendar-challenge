@@ -1,7 +1,7 @@
 import './styles.css';
 import * as React from 'react';
-import { ClusterCalendarEvent } from 'src/constants/common-interfaces';
-import { layoutSettings } from 'src/constants/layout-settings';
+import { ClusterCalendarEvent } from '../../constants/common-interfaces';
+import { layoutSettings } from '../../constants/layout-settings';
 
 interface Props {
     event: ClusterCalendarEvent;

@@ -1,10 +1,10 @@
 import './styles.css';
 import * as React from 'react';
-import { CalendarEvent, ClusterCalendarEvent } from 'src/constants/common-interfaces';
-import { CalendarEventNote } from 'src/components/calendar-event-note';
-import { CalendarEventsHelper } from 'src/helpers/calendar-events-helper';
-import { calendarTimeSettings } from 'src/constants/scale-constants';
-import { layoutSettings } from 'src/constants/layout-settings';
+import { CalendarEvent, ClusterCalendarEvent } from '../../constants/common-interfaces';
+import { CalendarEventNote } from '../calendar-event-note';
+import { CalendarEventsHelper } from '../../helpers/calendar-events-helper';
+import { calendarTimeSettings } from '../../constants/scale-constants';
+import { layoutSettings } from '../../constants/layout-settings';
 
 interface EventsCluster {
     events: ClusterCalendarEvent[];

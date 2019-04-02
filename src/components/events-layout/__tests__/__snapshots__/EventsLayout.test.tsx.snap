@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`EventsLayout should match snapshot 1`] = `
+<div
+  className="events-layout"
+  style={
+    Object {
+      "height": 720,
+      "minWidth": 620,
+      "width": 620,
+    }
+  }
+/>
+`;

@@ -1,7 +1,7 @@
 import './styles.css';
 import * as React from 'react';
-import { DAY_TIME_INFO, calendarTimeSettings } from 'src/constants/scale-constants';
-import { Tick } from 'src/components/tick';
+import { DAY_TIME_INFO, calendarTimeSettings } from '../../constants/scale-constants';
+import { Tick } from '../tick';
 
 interface TickItem {
     minute: number;

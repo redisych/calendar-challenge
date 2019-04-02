@@ -1,4 +1,4 @@
-import { CalendarEvent, ClusterCalendarEvent } from 'src/constants/common-interfaces';
+import { CalendarEvent, ClusterCalendarEvent } from '../constants/common-interfaces';
 
 export class CalendarEventsHelper {
     public static eventHasCollisions(
