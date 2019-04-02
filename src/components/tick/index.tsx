@@ -1,20 +1,21 @@
 import './styles.css';
 import * as React from 'react';
-import { DAY_TIME_INFO, calendarTimeSettings } from 'src/constants/scale-constants';
+import { DAY_TIME_INFO, calendarTimeSettings } from '../../constants/scale-constants';
 
 interface Props {
-    isHalfHour: boolean;
     minute: number;
 }
 
 export class Tick extends React.PureComponent<Props, {}> {
     public render(): JSX.Element {
+        const isHalfHour = this.isHalfHour();
+
         return (
             <div className="tick">
-                <span className={this.getTimeLabelClassName()}>
+                <span className={this.getTimeLabelClassName(isHalfHour)}>
                     {this.getTimeLabel()}
                 </span>
-                {!this.props.isHalfHour &&
+                {!isHalfHour &&
                     <span className="time-mark">
                         {this.getTimeMark()}
                     </span>
@@ -39,10 +40,10 @@ export class Tick extends React.PureComponent<Props, {}> {
         return `${hourToDisplay}:${restMinutesToDisplay}`;
     }
 
-    private getTimeLabelClassName = (): string => {
+    private getTimeLabelClassName = (isHalfHour: boolean): string => {
         let className = 'time-label';
 
-        className += this.props.isHalfHour ? ' time-label-half-hour' : '';
+        className += isHalfHour ? ' time-label-half-hour' : '';
 
         return className;
     }
@@ -54,5 +55,11 @@ export class Tick extends React.PureComponent<Props, {}> {
             DAY_TIME_INFO.MINUTES_IN_HOUR;
 
         return minute < minuteNoon ? 'AM' : 'PM';
+    }
+
+    private isHalfHour(): boolean {
+        const { minute } = this.props;
+
+        return (minute % DAY_TIME_INFO.MINUTES_IN_HOUR) > 0;
     }
 }

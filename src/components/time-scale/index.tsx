@@ -4,7 +4,6 @@ import { DAY_TIME_INFO, calendarTimeSettings } from 'src/constants/scale-constan
 import { Tick } from 'src/components/tick';
 
 interface TickItem {
-    isHalfHour: boolean;
     minute: number;
 }
 
@@ -26,7 +25,6 @@ export class TimeScale extends React.PureComponent<{}, State> {
             <div className="time-scale">
                 {this.state.ticks.map((tick: TickItem) => (
                     <Tick
-                        isHalfHour={tick.isHalfHour}
                         key={tick.minute}
                         minute={tick.minute}
                     />
@@ -50,17 +48,12 @@ export class TimeScale extends React.PureComponent<{}, State> {
             const minute = this.calculateMinutesInTick(i);
 
             ticks.push({
-                minute,
-                isHalfHour: this.isHalfHour(minute)
+                minute
             });
         }
 
         this.setState({
             ticks
         });
-    }
-
-    private isHalfHour(minute: number): boolean {
-        return (minute % DAY_TIME_INFO.MINUTES_IN_HOUR) > 0;
     }
 }
